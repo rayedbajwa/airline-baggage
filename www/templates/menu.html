@@ -1,0 +1,70 @@
+<ion-side-menus enable-menu-with-back-views="false">
+  <ion-side-menu-content>
+    <ion-nav-bar class="bar-stable">
+      <ion-nav-back-button>
+      </ion-nav-back-button>
+      <ion-nav-buttons side="left">
+        <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
+        </button>
+      </ion-nav-buttons>
+        <ion-nav-buttons  side="right">
+         <a class="button settings" ng-href="#/app/settings"><i class="ion-gear-a"></i></a>
+            </ion-nav-buttons>
+    </ion-nav-bar>
+  
+    <div class="row hav-1" ng-controller="topCtrl">
+            <div style=" padding-bottom: 10px;" class="col col-30 ">Departure Date: {{response.flight_date}} <br> No. of Members: {{response.no_of_members}} <br> Primary Member: {{response.primary_party_member}}</div>
+            <div style="text-align:right;margin-top: 22px;" class="col col-40 text-ali-right1"><span class="s1"> FLIGHT</span> <span class="s2">{{response.flight_no}}</span> </div>
+            <div style="text-align:right;margin-top: 22px;" class="col col-25   text-ali-right2"><span class="s1">DEP CITY</span> <span class="s2">{{response.destination}}</span> </div>
+     </div>
+     <div class="row tab-hav" ng-controller="tabs">
+        <div class="col col-15 main-boxes" ng-class="{true: 'active'}['app.party'==active]">
+            NEW
+        </div>
+        <div class="col col-15 main-boxes" ng-class="{true: 'active'}['app.members'==active]">
+            MEMBERS
+        </div>
+        <div class="col col-15 main-boxes" ng-class="{true: 'active'}['app.bags'==active]">
+            BAG
+        </div>
+        <div class="col col-15 main-boxes" ng-class="{true: 'active'}['app.summary'==active]">
+            SUMMARY
+        </div>
+        <div class="col col-15 main-boxes" ng-class="{true: 'active'}['app.payment'==active]">
+            PAYMENT
+        </div>
+        <div class="col col-15 main-boxes" ng-class="{true: 'active'}['app.print'==active]">
+            PRINT
+        </div>
+     </div>
+    <ion-nav-view name="mainContent"></ion-nav-view>
+
+  </ion-side-menu-content>
+
+  <ion-side-menu side="left">
+    <ion-header-bar class="bar-stable">
+      <h1 class="title">Menu</h1>
+    </ion-header-bar>
+    <ion-content>
+      <ion-list>
+        <ion-item menu-close href="#/app/home">
+      Home
+      </ion-item>
+          <ion-item menu-close href="#/app/party">
+        New Member
+        </ion-item>
+        <ion-item menu-close href="#/app/forms">
+          Saved Forms
+        </ion-item>
+     <ion-item menu-close href="#/app/rights">
+          Logout
+        </ion-item>
+          <ion-item menu-close href="#/app/settings">
+          Settings
+        </ion-item>
+
+
+      </ion-list>
+    </ion-content>
+  </ion-side-menu>
+</ion-side-menus>

@@ -1,0 +1,43 @@
+<ion-view title="Members">
+  <content has-header="true" padding="true">
+
+<!--  {{ response | json}}-->
+<form>
+
+      <div class="row airline-row1">
+<div class="col col-33">
+</div>
+<!--
+          <p>The ID is {{id}}</p>
+			<p>The content is {{primary_party_member}}</p>
+-->
+ <div class="col col-33">
+<!--    <div class="list forms-air" ng-repeat="item in items">-->
+    <div class="list forms-air" ng-repeat="n in res">
+      <label class="item item-input">
+  <span class="input-label">Member Name</span>
+  <input type="text"  placeholder="Enter Member Name"  ng-model="n.name">
+</label>
+     </div>
+<!--     {{response}}-->
+     </div><!--col-->
+ <div class="col col-33">
+</div>
+</div>
+
+      <div class="row airline-row2" >
+ <div class="col col-33">
+</div>
+ <div class="col col-33">
+
+   <button type="submit" ng-click="SaveMembers()" class="pre-trs air-buton button "> NEXT <i class="fa fa-arrow-right" aria-hidden="true"></i> </button>
+     <button ng-click="saveandcontinue()" class="pre-trs air-buton button "> SAVE & CONTINUE <i class="fa fa-arrow-right" aria-hidden="true"></i> </button>
+     <a href="#/app/editParty/{{response[0].party_id}}" class="pre-trs air-buton button anchor_btn"> BACK TO PARTY <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
+   </div>
+    <div class="col col-33">
+</div>
+</div>
+</form>
+
+  </content>
+</ion-view>

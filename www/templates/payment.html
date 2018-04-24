@@ -1,0 +1,186 @@
+<ionview title="Payment">
+
+  <ion-ontent has-header="true" padding="true">
+
+
+     <div class="row airline-row1">
+<div class="col col-10 ">
+</div>
+ <div class="col col-60 total-due">
+    <label class="bags-own1">TOTAL DUES : {{total}}<sup>$</sup></label>
+     </div><!--col-->
+ <div class="col col-10">
+</div>
+</div><!--airline row-->
+
+ <div class="row airline-row3">
+
+     <div class="col col-10"></div>
+<div class="col col-60">
+
+
+  <input type="radio" name="gender" value="credit" class="rds" id="rd"><img class ="rrr" src="img/visa.png" width="45px" height="28px"  ><img class ="rrr" src="img/master.png" width="45px" height="28px" ><img class ="rrr" src="img/american.png" width="45px" height="28px" ><br><br>
+
+    <div id="payment_btn">
+
+<!--        <form name="PrePage" method = "post" action = "https://scotest.authorize.net/payment/CatalogPayment.aspx"> <input type = "hidden" name = "LinkId" value ="09b4466f-cb07-4c21-a148-83db610107e7" /> <input type = "image" src ="//testcontent.authorize.net/images/buy-now-gold.gif" /> </form> -->
+
+
+
+
+        <style type="text/css">
+<!--
+.clear {clear:both; line-height:1px; font-size:1px; height:1px; }
+.contents {background-color:#EDF4F8; padding:10px; border:2px dashed #C2DAE7; }
+.leftbox {float:left; border-right:1px dashed #cecece; width:48%; }
+.leftone {float: left; width:150px; padding:3px; margin-left:5px; }
+.maindiv {width:700px; border:0px dashed #cecece; overflow:hidden; }
+.rightbox {float:left; width:48%; margin-left:5px; }
+.rightone {float:left; padding:3px;}
+.sel {border:1px inset gray; }
+-->
+</style>
+<div class="contents" style="width:150%;" ng-controller="paymentCtrl">
+<!--  <form action="payment.php" method="post" name="payform" id="payform">-->
+    <form>
+    <div class="maindiv">
+      <div class="leftbox">
+        <div class="leftone" style="color: #0099FF"><strong>Personal Details</strong></div>
+        <div class="rightone" style="width:80px;">&nbsp;</div>
+        <div class="leftone">First Name</div>
+        <div class="rightone">
+          <input type="text" ng-model="firstname" ng-required="true" />
+          <input type="hidden" id="amount" value="{{total}}">
+        </div>
+
+        <div class="leftone">Last Name</div>
+        <div class="rightone">
+          <input name="lastname" type="text" ng-model="lastname" required  />
+        </div>
+
+        <div class="leftone">Email</div>
+        <div class="rightone">
+          <input name="email" type="email" ng-model="email" required  />
+        </div>
+
+        <div class="leftone">Address</div>
+        <div class="rightone">
+          <input name="address" type="text" ng-model="address" />
+        </div>
+
+        <div class="leftone">City</div>
+        <div class="rightone">
+          <input name="city" type="text" ng-model="city" />
+        </div>
+
+        <div class="leftone">State/Zip</div>
+        <div class="rightone">
+          <input name="state" ng-model="state" type="text" maxlength="2" style="width:35px;float: left;" placeholder="State" />
+          <span style="font:8pt arial;float: left;margin: 10px 5px;">eg. NY</span>
+          <input name="zip" ng-model="zip" type="text" style="width:70px;float: left;" placeholder="Zip" />
+        </div>
+
+      </div>
+
+      <div class="rightbox">
+        <div class="leftone" style="color: #0099FF"><strong>Payment Details</strong></div>
+        <div class="rightone" style="width:80px;">&nbsp;</div>
+        <div class="leftone">Card Type</div>
+        <div class="rightone">
+          <select name="cardtype" ng-model="cardtype" >
+            <option value="visa">Visa</option>
+            <option value="MasterCard">Master Card</option>
+            <option value="AmericanExpress">American Express</option>
+          </select>
+        </div>
+
+        <div class="leftone">Cardholder Name</div>
+        <div class="rightone">
+          <input name="cardholder" ng-model="cardholder" type="text" />
+        </div>
+
+        <div class="leftone">Card Number</div>
+        <div class="rightone">
+          <input name="cardnumber" ng-model="cardnumber" type="number" required  />
+        </div>
+
+        <div class="leftone">Expiration <span style=" font:7pt arial; color:gray;">[ mm / yyyy ]</span></div>
+        <div class="rightone">
+          <input name="cardmonth" ng-model="cardmonth" class="sel" type="number" style="width:40px;float: left;margin-right: 10px;" required  />
+          &nbsp;
+          <input type="number" name="cardyear" ng-model="cardyear" class="sel" style=" width:98px;float: left;" required  />
+        </div>
+
+        <div class="leftone">CVV Number</div>
+        <div class="rightone">
+          <input name="cardcvv" ng-model="cardcvv" type="text" />
+        </div>
+
+        <div class="leftone" style="width:255px; text-align:right;">
+            <button ng-click="makePayment()" > Pay Now </button>
+<!--          <input name="submit" ng-click="makePayment()" style="border:1px outset gray; width:100px;" value="Pay Now" />-->
+        </div>
+      </div>
+      <div class="clear"></div>
+    </div>
+        </form>
+<!--  </form>-->
+</div>
+
+
+
+
+    </div>
+
+  <br><input type="radio" class="rd2" id="rd2" name="gender" value="cash"> Cash<br>
+</div>
+     <div class="col col-20"></div>
+
+
+
+</div>
+ <div class="row airline-row2" >
+ <div class="col col-33">
+</div>
+ <div class="col col-33">
+
+   <button  ng-click="printBtn()" id="btn" class="pre-trs air-buton button">
+     NEXT <i class="fa fa-arrow-right" aria-hidden="true"></i>
+    </button>
+   </div>
+    <div class="col col-33">
+</div>
+</div>
+  <script type="text/javascript">
+
+$(document).ready(function(){
+    $('#payment_btn').hide();
+    $('#btn').hide();
+    $('.rds').click(function(){
+        idName = $(this).attr('id');
+        if ( $(this).is(':checked') ) {
+            if ( idName === 'rd' ) {
+                $('#payment_btn').show();
+                $('#rd2').prop('checked', false);
+                $('#btn').hide();
+            } else {
+                $('#payment_btn').hide();
+                $('#btn').hide();
+            }
+        }
+    });
+
+    $('.rd2').click(function(){
+                $('#rd').prop('checked', false);
+                $('#payment_btn').hide();
+                $('#btn').show();
+
+    });
+
+
+
+});
+</script>
+
+  </ion-content>
+</ion-view>

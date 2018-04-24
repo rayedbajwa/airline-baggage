@@ -1,0 +1,93 @@
+<view view-title="Havana Air">
+
+<ion-content has-header="true" class="padding" has-subheader="true">
+
+<form ng-controller="PartyCtrl">
+<div class="row airline-row1">
+    <div class="col col-10">
+    </div>
+        <div class="col col-80">
+            <div class="list forms-air"><span class="pre-trs">NUMBER OF MEMBERS IN YOUR PARTY?</span>
+                <label class="airline-txtform  item item-input item-stacked-label">
+                    <input type="number" placeholder="" ng-model="no_of_members" required>
+                </label><span class="pre-trs">PRIMARY PARTY MEMBER?</span>
+                    <label class="airline-txtform item item-input item-stacked-label">
+                        <input type="text" placeholder="" ng-model="primary_party_member" required>
+
+                </label>
+            </div>
+     </div><!--col-->
+    <div class="col col-10">
+    </div>
+</div><!--airline row-->
+
+
+<div class="row airline-row3">
+   <div class="col col-10"></div>
+  <div class="col col-25 fl-1">
+    <label class = "item item-input item-select">
+      <div class = "input-label">
+         Flight Date
+      </div>
+
+      <select ng-model="flight_date">
+        <option value="01-Jun-2016" checked="true">06-12-2016</option>
+        <option value="10-Jun-2016">06-18-2016</option>
+        <option value="12-Jun-2016">06-14-2016</option>
+        <option value="15-Jun-2016">06-16-2016</option>
+        <option value="16-Jun-2016">06-22-2016</option>
+        <option value="19-Jun-2016">06-24-2016</option>
+
+      </select>
+   </label>
+
+
+    </div>
+
+  <div class="col col-25 fl-1">
+    <label class = "item item-input item-select">
+      <div class = "input-label">
+         Flights
+      </div>
+
+      <select ng-model="flight_no">
+        <option value="flight-001">Flight-001</option>
+        <option value="flight-002">Flight-002</option>
+        <option value="flight-003">Flight-003</option>
+
+      </select>
+   </label>
+  </div>
+  <div class="col col-25 fl-1">
+    <label class = "item item-input item-select">
+      <div class = "input-label">
+         Cities
+      </div>
+
+      <select ng-model="destination">
+
+        <option value="Lahore">Lahore</option>
+        <option value="Karachi">Karachi</option>
+        <option value="Peshawar">Peshawar</option>
+        <option value="Multan">Multan</option>
+      </select>
+   </label>
+
+  </div>
+</div>
+
+ <div class="row airline-row2" >
+ <div class="col col-33">
+</div>
+ <div class="col col-33">
+
+   <button outline ng-click="SendData()" class="pre-trs air-buton button "> NEXT <i class="fa fa-arrow-right" aria-hidden="true"></i> </button>
+   </div>
+    <div class="col col-33">
+</div>
+</div>
+</form>
+
+</ion-content>
+
+</view>

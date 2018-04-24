@@ -1,0 +1,105 @@
+<view title="member">
+
+  <ion-content has-header="true" padding="true">
+<div class="row airline-row1">
+<!--
+<div class="col col-10">
+</div>
+
+ <div class="col col-80">
+    <label class="member-own">WAQAS MUNIR</label>
+</div>col
+
+ <div class="col col-10"></div>
+-->
+
+
+</div><!--airline row-->
+
+<form>
+<!--{{members | json}}-->
+<!--start loop -->
+    
+<div ng-repeat="member in members">
+
+<!--        {{members | json}}-->
+    <div class="row airline-row3 padding" ng-if="member.member_name">
+
+        <div class="col col-100 fl-1">
+
+            <div class="ar-baggage">
+                <label>{{member.member_name}}</label>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="card col-25 airine-row" ng-repeat="bag in member.bags track by $index">
+<!--        {{member.bags | json}}-->
+        <div class="col col-100 item  fl-1">
+
+            <div class="list forms-air">
+                <label class="airline-txtform2  item item-input item-stacked-label">
+                    <input class="weight-air" type="text"  placeholder="WEIGHT" ng-model="bag.weight">
+                </label>
+            </div>
+
+        </div>
+
+        <div class="col col-100 item  fl-1">
+          <label class = "item item-select">
+            <div class = "member-label">
+               Weight Unit
+            </div>
+
+            <select ng-model="bag.unit">
+              <option value="{{bag.unit}}" ng-if="bag.unit" ng-selected="true">{{bag.unit}}</option>
+              <option value="gm"> gm</option>
+              <option value="lbs" ng-if="!bag.unit" ng-selected="true">lbs</option>
+              <option value="kg">kg</option>
+              <option value="pound">pound</option>
+            </select>
+         </label>
+
+        </div>
+
+    <!--    <div class="col col-20 fl-1"> <button class=" add-more button"> ADD MORE </button></div>-->
+
+        <div class="col col-100 fl-1 item ">
+            <button class=" add-more button" ng-if="$index!=0" ng-click="removemember($index)"> Remove </button>
+        </div>
+        
+    </div>
+    
+    <div class="col col100 fl-1" ng-if="member.member_id">
+        <button class=" add-more button" ng-click="addInput(member.member_id)"> ADD MORE </button>
+    </div>
+
+</div>
+    
+    <div class="col col100 fl-1">
+        <button type="submit" ng-click="SaveBags()" class="pre-trs air-buton button "> NEXT <i class="fa fa-arrow-right" aria-hidden="true"></i> </button>
+        <button ng-click="saveandcontinue()" class="pre-trs air-buton button "> SAVE & CONTINUE <i class="fa fa-arrow-right" aria-hidden="true"></i> </button>
+        <a href="#/app/members/{{members[0].party_id}}" class="pre-trs air-buton button anchor_btn"> BACK TO MEMBERS <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
+    </div>
+    
+   
+    <!--end add remove loop -->
+
+      <!--end loop -->
+
+ <div class="row airline-row1" >
+ 
+    <div class="col col-33">
+
+        <button type="submit" ng-click="Savemember()" class="pre-trs air-buton button "> NEXT <i class="fa fa-arrow-right" aria-hidden="true"></i> </button>
+        <button ng-click="saveandcontinue()" class="pre-trs air-buton button "> SAVE & CONTINUE <i class="fa fa-arrow-right" aria-hidden="true"></i> </button>
+        <a href="#/app/members/{{members[0].party_id}}" class="pre-trs air-buton button anchor_btn"> BACK TO MEMBERS <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
+    </div>
+    
+</div>
+      
+</form>
+
+  </ion-content>
+</view>

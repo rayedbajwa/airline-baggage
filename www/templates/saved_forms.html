@@ -1,0 +1,52 @@
+<ion-view title="Saved Forms">
+
+
+  <ion-content>
+
+ {{  wt | json   }}
+
+     <div class="row airline-row1">
+
+ <div class="col col-80 col-offset-10 padding">
+
+    <ion-list>
+
+      <ion-item>
+        <div class = "row">
+        <div class="sum-name col">Sr.</div>
+        <div class="sum-name col">Primary Member</div>
+        <div class="sum-name col">Link</div>
+      </div>
+    </ion-item>
+
+      <ion-item ng-repeat="forms in saved">
+          <div class = "row">
+        <div class="col col-33">{{$index+1}}</div>
+        <div class="col col-33">{{forms.primary_member}}</div>
+
+
+          <div class="col col-33"><a ng-href="{{forms.link}}" class="button button-outline">
+            OPEN
+          </a>
+        </div>
+      </div>
+      </ion-item>
+
+  </ion-list>
+
+
+</div><!--col-->
+
+</div><!--airline row-->
+
+ <div class="row airline-row2" >
+ <div class="col col-33">
+</div>
+
+    <div class="col col-33">
+</div>
+</div>
+
+
+  </ion-content>
+</ion-view>

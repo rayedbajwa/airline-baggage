@@ -1,0 +1,113 @@
+<view title="Members">
+    
+  <content has-header="true" padding="true">
+
+<!-- {{  wt | json   }}-->
+
+     <div class="row airline-row1">
+<div class="col col-10">
+</div>
+ <div class="col col-80">
+    <table style="width:40%; float:left;">
+
+  <tr>
+    <th class="sum-name">name</th>
+
+
+  </tr>
+<!--
+  <tr>
+    <td class="sum-fields">Jill</td>
+    <td class="sum-fields">2</td>
+    <td class="sum-fields">50kg</td>
+  </tr>
+  <tr>
+    <td class="sum-fields">Eve</td>
+    <td class="sum-fields">5</td>
+    <td class="sum-fields">94kg <br>40kg <br> 10kg </td>
+  </tr>
+  <tr>
+    <td class="sum-fields">John</td>
+    <td class="sum-fields">10</td>
+    <td class="sum-fields">80kg</td>
+  </tr>
+-->
+
+  <tr ng-repeat="summary in names">
+    <td class="sum-fields">{{summary.member_name}}</td>
+
+
+
+  </tr>
+
+</table>
+
+<table  style="width:30%;float:left;">
+     <tr>
+
+        <th class="sum-name">weight</th>
+      </tr>
+
+        <tr ng-repeat="wets in weigt">
+
+            <td class="sum-fields" >{{wets.weight}} {{wets.type}}</td>
+
+        </tr>
+
+</table>
+
+<table  style="width:30%;float:left;">
+     <tr>
+
+<!--        <th class="sum-name">bags</th>	-->
+        <th class="sum-name">Amount</th>
+      </tr>
+
+        <tr ng-repeat="nums in num_bags">
+
+<!--            <td class="sum-fields" >{{nums.nums}}</td>-->
+<!--            <td class="sum-fields" >{{nums.nums * 15}}$</td>	-->
+            <td class="sum-fields" >15$</td>
+
+        </tr>
+    <tr>
+
+        <td class="sum-fields" ><b>Total: {{total}}$</b></td>
+    </tr>
+
+</table>
+
+
+
+
+     </div><!--col-->
+ <div class="col col-10">
+</div>
+</div><!--airline row-->
+ <div class="row airline-row3">
+   <div class="col col-10"></div>
+  <div class="col col-25 fl-1">
+
+
+
+
+
+     </div>
+</div>
+ <div class="row airline-row2" >
+ <div class="col col-33">
+</div>
+ <div class="col col-33">
+
+     <button ng-click="gotoPayment()" class="pre-trs air-buton button "> NEXT <i class="fa fa-arrow-right" aria-hidden="true"></i> </button>
+     <button ng-click="saveandcontinue()" class="pre-trs air-buton button "> SAVE & CONTINUE <i class="fa fa-arrow-right" aria-hidden="true"></i> </button>
+     <a href="#/bags/{{response[0].party_id}}" class="pre-trs air-buton button anchor_btn"> BACK TO LUGGAGE <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
+
+   </div>
+    <div class="col col-33">
+</div>
+</div>
+
+
+  </content>
+</view>

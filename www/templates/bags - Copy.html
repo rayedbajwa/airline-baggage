@@ -1,0 +1,117 @@
+<view title="Members">
+  <content has-header="true" padding="true">
+<br><br>
+      <div class="row tab-hav"> 
+    
+    
+        <div  class="col col-15">
+            NEW
+        </div>
+        <div  class="col col-15">
+            MEMBERS
+        </div>
+        <div style="background: rgba(75, 117, 156, 0.8);" class="col col-15">
+            BAG
+        </div>
+        <div class="col col-15">
+            SUMMARY
+        </div>
+        <div class="col col-15">
+            PAYMENT
+        </div>
+        <div class="col col-15 no-mar">
+            PRINT
+        </div>
+       
+    
+  
+     </div>  
+      
+      
+<div class="row airline-row1">
+<!--
+<div class="col col-10">
+</div>
+
+ <div class="col col-80">
+    <label class="bags-own">WAQAS MUNIR</label>
+</div>col 
+    
+ <div class="col col-10"></div>
+-->
+
+    
+</div><!--airline row-->
+      
+<form ng-controller="saveluggageCtrl">
+
+<!--start loop -->    
+<div ng-repeat="bags in response track by $index">
+<!--    {{inputs | json}}-->
+<div ng-repeat="input in inputs">
+    <div  class="row airline-row3"  id="{{bags.id}}">
+     
+   <div class="col col-10"></div>
+     
+    <div class="col col-20 fl-1">
+
+        <div class="ar-baggage">
+            <label>{{bags.member_name}}</label>
+        </div>
+        
+    </div>
+     
+    <div class="col col-20 fl-1">
+        <div class=""> 
+            <div class="list forms-air"><span class="pre-trs"></span>
+                
+                <label class="airline-txtform2  item item-input item-stacked-label">
+                    <input class="weight-air" type="text"  placeholder="WEIGHT" ng-model="bags.index">
+                </label> 
+                
+            </div>
+        </div>
+    </div>
+     
+    <div class="col col-20 fl-1">
+        <div class="">  
+            <select class="ar-full2" ng-model="bags.is_primary_member">
+                <option selected="" value=" gm"> gm</option>
+                <option value="lbs">lbs</option>
+                <option value="kg">kg</option>
+                <option value="pound">pound</option>
+            </select>
+        </div>
+    </div>
+     
+    
+<!--    <div class="col col-20 fl-1"> <button class=" add-more button"> ADD MORE </button></div>-->
+    
+    <div class="col col-20 fl-1"> 
+        <button class=" add-more button" ng-if="$index == inputs.length - 1" ng-click="addInput({{bags.id}})"> ADD MORE </button> 
+        <button class=" add-more button" ng-if="$index != inputs.length - 1" ng-click="removeInput($index)"> Remove </button>
+    </div>
+  
+
+    </div></div>
+    <!--end add remove loop -->   
+</div>
+      <!--end loop -->
+
+   
+ <div class="row airline-row2" >
+ <div class="col col-33">
+</div>
+ <div class="col col-33">
+
+   <button type="submit" ng-click="SaveBags()" class="pre-trs air-buton button ">
+     NEXT <i class="fa fa-arrow-right" aria-hidden="true"></i>
+    </button>
+   </div> 
+    <div class="col col-33">
+</div>
+</div>
+</form>      
+
+  </content>
+</view>

@@ -1,0 +1,69 @@
+<view title="Members">
+    
+    <div class="row hav-1" ng-controller="savememberCtrl">
+       
+            <div style=" padding-bottom: 10px;" class="col col-30 ">Departure Date:: {{response.flight_date}} <br> No. of Members: {{response.no_of_members}} <br> Primary Member: {{response.primary_party_member}}</div>
+            <div style="text-align:right;margin-top: 22px;" class="col col-40 text-ali-right1"><span class="s1"> FLIGHT</span> <span class="s2">{{response.flight_no}}</span> </div>
+            <div style="text-align:right;margin-top: 22px;" class="col col-25   text-ali-right2"><span class="s1">DEP CITY</span> <span class="s2">{{response.destination}}</span> </div>   
+     </div>
+    
+<content has-header="true" padding="true">
+<br><br>
+      <div class="row tab-hav"> 
+    
+    
+        <div  class="col col-15">
+            NEW
+        </div>
+        <div style="background: rgba(75, 117, 156, 0.8);" class="col col-15">
+            MEMBERS
+        </div>
+        <div class="col col-15">
+            BAG
+        </div>
+        <div class="col col-15">
+            SUMMARY
+        </div>
+        <div class="col col-15">
+            PAYMENT
+        </div>
+        <div class="col col-15 no-mar">
+            PRINT
+        </div>
+  
+     </div>  
+<!--  {{ response | json}}  -->
+<form>      
+  
+<div class="row airline-row1">
+    <div class="col col-33"></div>
+
+     <div class="col col-33">
+
+        <div class="list forms-air" ng-repeat="n in response">    
+            <span class="pre-trs">Member NAME</span>
+            <label class="airline-txtform  item item-input item-stacked-label">
+                <input type="text" placeholder="Enter Member Names" ng-model="n.member_name">
+                <input type="hidden" placeholder="Enter Member Names" ng-model="n.id">
+            </label>
+        </div>
+
+    </div><!--col-->  
+    
+    <div class="col col-33"></div>
+</div>
+      
+<div class="row airline-row2" >
+     <div class="col col-33"></div>
+    
+     <div class="col col-33">
+        <button type="submit" ng-click="EditMembers()" class="pre-trs air-buton button "> NEXT <i class="fa fa-arrow-right" aria-hidden="true"></i> </button>
+        <a href="#/editParty/{{response[0].party_id}}" class="pre-trs air-buton button anchor_btn"> BACK TO PARTY <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
+     </div> 
+    
+     <div class="col col-33"></div>
+</div>
+</form>
+
+</content>
+</view>
